@@ -24,9 +24,12 @@ jobs:
     - name: Prepare src folder for generating coverage report
       run: yarn nyc:instrument
 
+    - name: Run Cypress tests ang generate coverage report
+      run: yarn cy:run:headless
+
     - name: Test & publish code coverage to codeclimate.com
-      uses: paambaati/codeclimate-action@v2.3.0
+      uses: paambaati/codeclimate-action@v2.4.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
-        coverageCommand: yarn cy:run:headless
+        coverageCommand: ls -la coverage
