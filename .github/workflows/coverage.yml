@@ -27,9 +27,16 @@ jobs:
     - name: Run Cypress tests ang generate coverage report
       run: yarn cy:run:headless
 
-    - name: Test & publish code coverage to codeclimate.com
+    - name: Publish code coverage to codeclimate.com
       uses: paambaati/codeclimate-action@v2.4.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
         coverageCommand: ls -la coverage
+
+    - name: Upload coverage
+      uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: coverage
+        path: coverage
