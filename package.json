@@ -32,7 +32,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rollup": "^2.16.2",
     "gulp-uglify": "^3.0.0",
-    "istanbul-lib-coverage": "^2.0.5",
+    "istanbul-lib-coverage": "^3.0.0",
     "jquery": "^3.3.1",
     "karma": "^4.0.0",
     "karma-chrome-launcher": "^3.0.0",
@@ -68,6 +68,11 @@
         "path": "dist/sweetalert2.all.min.js",
         "maxSize": "20kB"
       }
+    ]
+  },
+  "nyc": {
+    "reporter": [
+      "clover"
     ]
   },
   "author": "Limon Monte <limon.monte@gmail.com> (https://limonte.github.io)",
